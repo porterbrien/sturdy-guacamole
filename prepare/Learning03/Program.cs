@@ -2,40 +2,15 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello Learning03 World!");
+        // This is the first count
+        int count1 = 0;
+        while (count1 < 5);
+        {
+            Console.WriteLine($"First loop count is {count1}");
+            count1++;
+        }
+
     }
 }
-
-// Ask for random number 
-
-
-Random randomGenerator = new Random();
-int number = randomGenerator.Next(1, 11);
-
-int random = 4;
-int guess;
-do {
-
-// Ask for user guess
-    System.Console.Write("What is your guess? ");
-    guess = int.Parse(Console.ReadLine());
-
-    // check if guess is higher
-    if (guess > random) {
-        System.Console.WriteLine("too high");
-    }
-
-    // Check if guess is lower
-    else if (guess< random) {
-        System.Console.WriteLine("Too Low");
-    }
-
-    // Check if guess is match
-    else 
-    {
-        System.Console.WriteLine("Correct");
-    }
-} while (random != guess);
-// keep going...
