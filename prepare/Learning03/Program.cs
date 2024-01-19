@@ -11,6 +11,5 @@ class Program
             Console.WriteLine($"First loop count is {count1}");
             count1++;
         }
-
     }
 }
