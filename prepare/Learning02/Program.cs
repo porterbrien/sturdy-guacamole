@@ -5,38 +5,38 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning02 World!");
+        // Console.WriteLine("Hello Learning02 World!");
 
-        // first "Car" is our class name. it needs to be uper-case. second "car" can be named anything except the class that we put it in. (Change to model or make of car). 
+        // // first "Car" is our class name. it needs to be uper-case. second "car" can be named anything except the class that we put it in. (Change to model or make of car). 
 
-        // new variable. To create an instance of a car. you have to use new.
-        int count = 23;
-        var cars = new List<Car>();
+        // // new variable. To create an instance of a car. you have to use new.
+        // int count = 23;
+        // var cars = new List<Car>();
 
 
-        Car car = new Car();
-        car.model = "Honda";
-        car.make = "Civic";
-        car.gallons = 10;
-        car.milesPerGallon = 30;
+        // Car car = new Car();
+        // car.model = "Honda";
+        // car.make = "Civic";
+        // car.gallons = 10;
+        // car.milesPerGallon = 30;
 
-        var owner = new Person();
-        owner.name = "bob";
-        owner.phone = 333-3333;
-        car.owner = owner;
+        // var owner = new Person();
+        // owner.name = "bob";
+        // owner.phone = 333-3333;
+        // car.owner = owner;
 
-        cars.Add(car);
+        // cars.Add(car);
 
-        foreach (var c in cars)
-        {
-            // System.Console.WriteLine($"{c.make} {c.model}: totalrange = {c.TotalRange()}");
-            c.Display();
-        }
+        // foreach (var c in cars)
+        // {
+        //     // System.Console.WriteLine($"{c.make} {c.model}: totalrange = {c.TotalRange()}");
+        //     c.Display();
+        // }
         
-        owner = new Person();
-        owner.name = "sue";
-        owner.phone = 444-4444;
-        car.owner = owner;
+        // owner = new Person();
+        // owner.name = "sue";
+        // owner.phone = 444-4444;
+        // car.owner = owner;
         
         // var cars = new List<string>();
         // var models = new List<string>();
@@ -48,6 +48,26 @@ class Program
         // var model2 = "F-150";
 
         // Cannot do it this way, too many variables.
+        Job instanceJobs = new Job();
+
+            Job job1 = new Job();
+            job1._jobtitle = "Software Engineer";
+            job1._company = "Microsoft";
+            job1._startYear = 2014;
+            job1._endYear = 2023;
+
+            Job job2 = new Job();
+            job1._jobtitle = "Electritian";
+            job1._company = "Energizer";
+            job1._startYear = 2014;
+            job1._endYear = 2023;
+
+            Resume myResume = new Resume();
+            myResume._name = "John Carpenter";
+
+            myResume._job.Add(job1);
+            myResume._job.Add(job2);
+
     }
 }
 
