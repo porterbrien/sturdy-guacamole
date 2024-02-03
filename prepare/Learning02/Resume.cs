@@ -19,7 +19,5 @@ public class Resume
         {
             job.Display();
         }
-
     }
-
 }
