@@ -44,9 +44,35 @@ public class Entry
     }
     // 
     // This is my formatted print string, it does not return a variable.
+
+//playing around
+//
+    public string GetFormattedEntries()
+    {
+        List<string> formattedEntries = new List<string>();
+
+        foreach (Entry entry in entries)
+        {
+            formattedEntries.Add($"Date: {entry._date};\nPrompt: {entry._prompt};\n\n>{entry._response};\n\n");
+        }
+
+        return string.Join(Environment.NewLine, formattedEntries);
+    }
+
+    public string saveFormatEntries()
+    {
+        List<string> stringforfile = new List<string>();
+
+        foreach (Entry entry in entries)
+        {
+            stringforfile.Add($"Date: {entry._date};Prompt: {entry._prompt};>{entry._response};\"");
+        }
+        return string.Join(Environment.NewLine, stringforfile);
+    }
+
     public void print()
     {
-        Console.WriteLine($"{_date}\n{_prompt}\n\n>{_response}\n\n");
+        Console.WriteLine($"Date:{_date}\nPrompt:{_prompt}\n\n>{_response}\n\n");
     }
     // 
     // Prints the correct entry.

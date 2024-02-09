@@ -11,15 +11,16 @@ class Program
         Entry entry1 = new Entry();
         bool Loop = true;
         
-        while(Loop){
-
+        while(Loop)
+        {
             Console.Clear();
             Console.WriteLine("Journal:\n1. Add entry\n2. Display the Journal\n3. Save Journal\n4. Load Journal \n5. Exit\n");
             string userInput = Console.ReadLine();
             
             // first showMenu
             
-            if (userInput == "1"){
+            if (userInput == "1")
+            {
                 // Getting the current date.
                 DateTime theCurrentTime = DateTime.Now;
                 // Switches the date to a string.
@@ -35,73 +36,45 @@ class Program
                 Console.WriteLine(entry1.entries.Count);
             }
 
-            else if(userInput == "2")
+            else if (userInput == "2")
             {
-                Console.Clear();
+                // Shows the entries that the user inputs.
+            //    Console.Clear();
+                Console.WriteLine($"Entry - {entry1._date}");
                 entry1.displayEntry();
+                Console.WriteLine("Press enter to continue: ");
+                Console.ReadLine();
             }
 
-            // else if (userInput == '3')
-            // {
-            //     Save journal to a file
-            // }
+            else if (userInput == "3")
+            {
+            //  saves the entries to a file using the Journal Class.
+                book1.fileName();
+                string newFile = Console.ReadLine();
+                string sentenceWithoutSpaces = newFile.Trim();
+                book1.formatFile(sentenceWithoutSpaces);
+                book1.saveEntry(sentenceWithoutSpaces, entry1.saveFormatEntries());
 
-            // else if (userInput == '4')
-            // {
-            //     Load the journal from a file
-            // }
+                Console.WriteLine("Press enter to continue: ");
+                Console.ReadLine();
+            }
+
+            else if (userInput == "4")
+            {
+                // Load the journal from a file
+                Console.WriteLine("What file would you like to access: ");
+                string reText = Console.ReadLine();
+                book1.LoadEntry(reText);
+                Console.WriteLine($"{entry1.GetFormattedEntries()}");
+                Console.WriteLine("Press enter to continue: ");
+                Console.ReadLine();
+            }
 
             else if (userInput == "5")
             {
                 Console.Clear();
                 Loop = false; 
             }
-            
         }
-
-
-
     }
 }
-    // public Journal = new Journal();
-
-    // public void SaveEntry(){
-
-    // } 
-    // public void LoadEntry(){
-
-    // }
-
-
-//     public void WhileStatement(){
-//         bool bombLoop = true;
-        
-//         while(bombLoop){
-//             // first showMenu
-//             Console.Clear();
-//             ShowMenu();
-            
-//             if 1{
-//                 Console.WriteLine($"Userinput");
-//             }
-
-//             // if 2{
-//             //     Display the journal
-//             // }
-
-//             // if 3{
-//             //     Save journal to a file
-//             // }
-
-//             // if 4{
-//             //     Load the journal from a file
-//             // }
-//         }
-//     }
-//     public int ShowMenu(){
-//         Console.WriteLine("Journal:\n1. Add entry\n2. Display the Journal\n3. Save Journal\n4. Load Journal \n5. Exit");
-//         string Input = Console.ReadLine();
-//         return int.Parse(Input);
-//     }
-
-// }
