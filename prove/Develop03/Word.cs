@@ -1,25 +1,22 @@
+using System.Reflection.Metadata.Ecma335;
+
 public class Word
 // Stores the letters of that word when told to display it will display or underscore
 {
-    public Word(string text)
-    {
-        _text = text;
-    }
-    private string text()
-    {
-        
-    }
-    private bool hidden()
-    {
+    string _word = "";
 
-    }
-    public getHidden()
+    public Word(string word)
     {
-
-    }
-    public setHidden()
-    {
-
+        _word = word;
     }
 
+    public void hidden()
+    {
+        _word = "____";
+    }
+    
+    public string getWord()
+    {
+       return _word;
+    }
 }

@@ -1,27 +1,29 @@
 public class Reference
 {
-    // 
+    string _book = "";
+    int _chapter = 0 ;
+    string _verse = "";
+
     public Reference(string book, int chapter, string verse)
     {
         _book = book;
         _chapter = chapter;
         _verse = verse;
     }
-    private string book()
+    private static string Book()
     {
-        
+        return "";
     }
-    private int chapter()
+    private static int Chapter()
     {
-        
+        return 0;
     }
-    private string verse()
+    private static string Verse()
     {
-        
+        return "";
     }
-    public Display()
+    public static string Display()
     {
-        
+        return "";
     }
-
 }
