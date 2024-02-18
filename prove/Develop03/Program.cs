@@ -21,7 +21,10 @@ class Program
 
         while (still != "quit" && scripture1.checkIndex() != "quit")
         {
+            Console.Clear();
             // print out ("chapter": "verse: > "scripture text"
+            Console.WriteLine("\n");
+            reference1.Display();
             scripture1.printScripture();
             Console.WriteLine("\n\nPress \"Enter\" to practice\n\nType \"quit\" to quit the program.");
             string userInput = Console.ReadLine();

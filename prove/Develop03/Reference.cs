@@ -22,8 +22,8 @@ public class Reference
     {
         return "";
     }
-    public static string Display()
+    public void Display()
     {
-        return "";
+        Console.WriteLine($"{_book} {_chapter}:{_verse}");
     }
 }
