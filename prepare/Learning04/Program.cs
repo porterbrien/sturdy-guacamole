@@ -90,3 +90,45 @@ class Program
 //         int answer = Add2(10, "bob");
 //         PrintName($"Bob is {answer}");
 // }
+
+
+class Person {
+    private string id;
+    private string name;
+
+    protected Person(string id, string name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+// Student
+// This is an example of a sub class
+class Student : Person {
+    private string major;
+
+    public Student(string id, string name, string major) : base(id, name) {
+        this.major = major;
+        this.id = id;
+    }
+    protected string DisplayInfo(){
+        return $"{name}: {id}";
+    }
+
+    public void Display()
+    {
+        System.Console.WriteLine($"{DisplayInfo()} - {major}");
+    }
+}
+
+
+
+// faculty 
+
+class Faculty : Person{
+    private string department;
+
+    public Faculty(String id, string name, string department) : base(id, name) {
+        this.department = department;
+    }
+}
