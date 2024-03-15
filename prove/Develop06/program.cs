@@ -24,7 +24,7 @@ class Program
             if (userInput == "1")
             {
                 //Create new goal
-                typesofGoals();
+                goal1.typesofGoals();
 
             }
             else if(userInput == "2")
