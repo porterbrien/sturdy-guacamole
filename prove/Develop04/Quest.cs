@@ -38,6 +38,8 @@ public class Quest{
 
             Goal simple1 = new Simple(name, description, pointsAwarded, false);
             listOfGoals.Add(simple1);
+
+            Console.Clear();
         }
         else if(inputUser == "2")
         {
@@ -64,6 +66,8 @@ public class Quest{
 
             Goal checklist1 = new Checklist(name, description, pointsAwarded, bonusPoints, timesToCompleted, 0);
             listOfGoals.Add(checklist1);
+
+            Console.Clear();
         }
         else if(inputUser == "3")
         {
@@ -82,6 +86,8 @@ public class Quest{
 
             Goal eternal1 = new Eternal(name, description, pointsAwarded);
             listOfGoals.Add(eternal1);
+
+            Console.Clear();
         }
     }
 
@@ -154,11 +160,14 @@ public class Quest{
                 _pointsTotal = int.Parse(Parts[0]);
             }
         }
+        Console.Clear();
     }
 
     // This one is going to record whether the user wants to check off an item in the list.
     public void markQuest()
     {
+        displayList();
+        Console.WriteLine("\n\n");
         Console.WriteLine("Which event would you like to complete? ");
         int eventCompletion = int.Parse(Console.ReadLine());
 
@@ -167,6 +176,8 @@ public class Quest{
         int points = listOfGoals[eventCompletion-1].recordEvent();
         _pointsTotal += points;
 
+
+        Console.Clear();
 
     }
 }
