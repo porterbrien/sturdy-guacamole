@@ -11,7 +11,6 @@ class Program
         Scripture scripture1 = new Scripture("Behold, I give unto you power to tread on serpents and scorpions, and over all the power of the enemy: and nothing shall by any means hurt you");
         // Word word1 = new Word();
 
-
         Console.WriteLine("Hello Develop03 World!");
         
         // if user hits enter, then take a few words away from the program.

@@ -38,7 +38,7 @@ class Program
             else if (userInput == "2")
             {
                 // Shows the entries that the user inputs.
-            //    Console.Clear();
+            
                 Console.WriteLine($"Entry - {entry1._date}");
                 entry1.displayEntry();
                 Console.WriteLine("Press enter to continue: ");
