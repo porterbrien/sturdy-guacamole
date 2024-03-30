@@ -13,7 +13,6 @@ public class Simple : Goal
         _completion = completion;
     }
 
-
     public override string displayGoals()
     {
         if (!_completion)
@@ -24,8 +23,8 @@ public class Simple : Goal
         {
             return $"[X] {_name} : {_description}";
         }
-        
     }
+    
     public override int recordEvent()
     {
         _completion = true;

@@ -23,7 +23,9 @@ class Reflection : Activity
     // Pulls a random prompt from the library "RANDOM" 
     public void randomPrompt(){
         Random prompt = new Random();
+        // Next is in the library for Random, The 0 is for between 0-prompts.Length (how ever long the list is)
         int number = prompt.Next(0, prompts.Length);
+        // Looks like its selecting the index of the number from the list
         string userPrompt = $"{prompts[number]}";
         Thread.Sleep(150);
         Console.Clear();
