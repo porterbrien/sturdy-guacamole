@@ -171,11 +171,8 @@ public class Quest{
         Console.WriteLine("Which event would you like to complete? ");
         int eventCompletion = int.Parse(Console.ReadLine());
 
-
-
         int points = listOfGoals[eventCompletion-1].recordEvent();
         _pointsTotal += points;
-
 
         Console.Clear();
 

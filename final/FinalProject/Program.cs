@@ -7,7 +7,7 @@ class Program
         // Console.WriteLine("Hello FinalProject World!");
         Quest quest1 = new Quest();
 
-        bool finished = true;
+        bool finished = false;
 
         while (finished)
         {
@@ -31,13 +31,17 @@ class Program
 
             if (userInput == 3)
             {
-                // viewPets();
+                quest1.assignLevel();
+                // levelPets();
                 // Console.WriteLine("\n\n");
 
 
-                // quest1.levelPet() > activity menu (randomizer for leveling up) | Food Menu (randomizer for leveling up) | Tricks menu (randomizer for leveling up);
+                // quest1.levelPet() > activity menu (randomizer for leveling up) | Food Menu (randomizer for leveling up) | Tricks menu (randomizer for leveling up); 
 
                 // I want to have an increasing chance of the pet to level up the more tries there are from the user.
+                // To do this. If the user feeds a pet, the chance for leveling up is 10-100. if random does not get number "1-10", move slider to "1-20" so there will be 20-100 chance. so on. 
+
+
             }
             
             if (userInput == 4)
@@ -52,7 +56,7 @@ class Program
 
             if (userInput == 6)
             {
-                finished = false;
+                finished = true;
             }
         }
     }
