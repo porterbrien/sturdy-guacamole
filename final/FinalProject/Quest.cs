@@ -3,31 +3,24 @@ using System.Runtime.InteropServices.Marshalling;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 
-
 public class Quest
 {
-
-    // List for whatever
     private List<int> numberList = new List<int>();
-
+    
     public int[] LevelsList = 
         {
             1, 2, 3
         };
 
-    private int assignedLevel;
+    public int assignedLevel;
 
-    public void assignLevel()
+    public int assignLevel()
     {
         Random random = new Random();
         int randomLevelIndex = random.Next(0, LevelsList.Length);
         assignedLevel = LevelsList[randomLevelIndex];
-        Console.WriteLine("randomly selected Level: " + assignedLevel);
+        return assignedLevel;
     }
-
-    // Test for Assign level.
-    // Console.WriteLine("Your pets assigned level is: ");
-    
     
 // When the user hits the feed/ trick/ or play button, this should run and give it a number if the
     public void PerformAction()
@@ -67,18 +60,10 @@ public class Quest
     {
         // For no levelUp, if we can have it say words of encouragement or give some narration on to the progress of the pet, that would be beneficial for the already slow gameplay. Could I do a random word generator for this? how do I 
     }
-
-
-
-    
+    // This is going to be the list of animals which is the list of the type of animals, the name, and the level they are.
     private List<Pets> animals = new List<Pets>();
-    // private List<Pets> petNames = new List<Pets>();
 
-    private int[] Levels = 
-    {
-        1, 2, 3
-    };
-
+    // This formats #2 in the list where the user wants to view the pets. it calles the function from pets and uses that information.
     public void viewPets()
     {
         int number = 1;
@@ -86,77 +71,80 @@ public class Quest
         foreach(Pets name in animals)
         {   
             // 
-            Console.WriteLine($"{number}) {name.displayName()}");
+            Console.WriteLine($"{number}) {name.displayInfo()}");
             number++;
         }
         Console.ReadKey();
     }
 
-    private void randomLevel()
-    {
-        Random Level = new Random();
-        
-    }
-
     public void createPet()
     {
-        bool loop = false;
+        bool loop = true;
         while(loop)
         {
             Console.WriteLine("---Welome to the Pet Shop!---");
             Console.WriteLine("\nWhat pet are you looking for? ");
             Console.WriteLine("    1) Tree Species\n    2) Frog Species\n    3) Bird Species\n    4) Rock Species\n");
             Console.WriteLine("Which pet would you like? ");
-            int Species = int.Parse(Console.ReadLine());
 
-            if(Species == 1)
+            string Species = Console.ReadLine();
+
+            if(Species == "1")
             {
                 Console.WriteLine("Whats the name for your new Tree Species pet? ");
                 string petName = Console.ReadLine();
+                string petType = "Tree";
+                int petLevel = assignLevel();
 
 
-                Tree tree1 = new Tree(petName);
+                Tree tree1 = new Tree(petName, petType, petLevel);
                 animals.Add(tree1);
 
                 // Input randomizer what level they start off as
 
-                loop = true;
+                loop = false;
             }
-            else if (Species == 2)
+            else if (Species == "2")
             {
                 Console.WriteLine("Whats the name for your new Frog Species pet? ");
                 string petName = Console.ReadLine();
+                string petType = "Frog";
+                int petLevel = assignLevel();
 
-                Frog frog1 = new Frog(petName);
+                Frog frog1 = new Frog(petName, petType, petLevel);
                 animals.Add(frog1);
 
                 // Input randomizer what level they start off as
 
-                loop = true;
+                loop = false;
             }
-            else if (Species == 3)
+            else if (Species == "3")
             {
                 Console.WriteLine("Whats the name for your new Bird Species pet? ");
                 string petName = Console.ReadLine();
+                string petType = "Bird";
+                int petLevel = assignLevel();
 
-                Bird bird1 = new Bird(petName);
+                Bird bird1 = new Bird(petName, petType, petLevel);
                 animals.Add(bird1);
 
                 // Input randomizer what level they start off as
 
-                loop = true;
+                loop = false;
             }
-            else if (Species == 4)
+            else if (Species == "4")
             {
                 Console.WriteLine("Whats the name for your new Rock Species pet? ");
                 string petName = Console.ReadLine();
+                string petType = "Rock";
+                int petLevel = assignLevel();
 
-                Rock rock1 = new Rock(petName);
+                Rock rock1 = new Rock(petName, petType, petLevel);
                 animals.Add(rock1);
 
                 // Input randomizer what level they start off as
 
-                loop = true;
+                loop = false;
             }
             else
             {
