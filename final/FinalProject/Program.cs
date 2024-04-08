@@ -13,7 +13,7 @@ class Program
         {
 
             // print the menu first
-            // Console.Clear();
+            Console.Clear();
             Console.WriteLine("Welcome to the studio!\n---This is your home page!---");
             Console.WriteLine("    1) Create a pet\n    2) View my pets\n    3) Level a Pet\n    4) Save Progress\n    5) Load progress\n    6) Quit Program");
             Console.WriteLine("Select an item from the menu: ");
@@ -26,6 +26,7 @@ class Program
 
             if (userInput == 2)
             {
+                Console.Clear();
                 quest1.viewPets();
             }
 

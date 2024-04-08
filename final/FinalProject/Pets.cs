@@ -31,7 +31,7 @@ public abstract class Pets
         return $"{_name}";
     }
 
-     public int UpdateTotalPoints(int points)
+    public int UpdateTotalPoints(int points)
     {
         totalPoints += points;
         if (totalPoints >= 100)
@@ -47,7 +47,10 @@ public abstract class Pets
     private void IncreasePetLevel()
     {
         // Code to increase level of pets
-        Console.WriteLine("Level up!");
+        _petLevel++;
+        Thread.Sleep(2500);
+        Console.Clear();
+        Console.WriteLine("---LEVEL UP!---");
     }
     // Teachers suggestion, come back to figure it out
     public abstract void Level();

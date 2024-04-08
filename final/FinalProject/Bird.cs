@@ -28,26 +28,33 @@ public class Bird : Pets
         bool thisLoop = true;
         while (thisLoop)
         {
+            Console.Clear();
             Console.WriteLine("Which activity would you like to do with your pet? ");
             Console.WriteLine("    1) Feed\n    2) Tricks\n    3) Exercise");
             string petInput = Console.ReadLine();
             switch (petInput)
             {
             case "1":
+                Console.WriteLine("--------------------------------------------");
                 Console.WriteLine($"You fed your pet {assignedFood}!");
-                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                Console.WriteLine($"\n---Your pet gained {assignedPoints} points---");
+                Thread.Sleep(2500);
                 thisLoop = false; // Exit the loop after feeding
                 break;
             case "2":
                 // Handle tricks
+                Console.WriteLine("--------------------------------------------");
                 Console.WriteLine("Your pet struggled, but learned a new trick!");
-                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                Console.WriteLine($"\n---Your pet gained {assignedPoints} points---");
+                Thread.Sleep(2500);
                 thisLoop = false;
                 break;
             case "3":
                 // Handle exercise
+                Console.WriteLine("--------------------------------------------");
                 Console.WriteLine("Your pet is looking fit!");
-                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                Console.WriteLine($"\n---Your pet gained {assignedPoints} points---");
+                Thread.Sleep(2500);
                 thisLoop = false;
                 break;
             default:

@@ -53,7 +53,9 @@ public class Quest
             Console.WriteLine($"{number}) {name.displayInfo()}");
             number++;
         }
+        Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
+
     }
     public void viewPets2()
     {
@@ -72,8 +74,9 @@ public class Quest
         bool loop = true;
         while(loop)
         {
+            Console.Clear();
             Console.WriteLine("---Welome to the Pet Shop!---");
-            Console.WriteLine("\nWhat pet are you looking for? ");
+            Console.WriteLine("What pet are you looking for? ");
             Console.WriteLine("    1) Tree Species\n    2) Frog Species\n    3) Bird Species\n    4) Rock Species\n");
             Console.WriteLine("Which pet would you like? ");
 
@@ -146,11 +149,13 @@ public class Quest
         bool loop = true;
         while (loop)
         {
+            Console.Clear();
             Console.WriteLine("---Welcome to the Activities Hub---");
             Console.WriteLine("Select a Pet you would like to upgrade:");
             // Display the list of pets
+            Console.WriteLine();
             viewPets2();
-            Console.WriteLine("Which pet would you like to upgrade? (select index or type \"quit\"): ");
+            Console.WriteLine("\nWhich pet would you like to upgrade? (select index or type \"quit\"): ");
 
             // Read user input and attempt to parse it into an integer
             int choiceIndex;
