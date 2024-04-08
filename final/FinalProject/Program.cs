@@ -32,7 +32,7 @@ class Program
 
             if (userInput == 3)
             {
-                quest1.assignLevel();
+                quest1.activitiesList();   
 
                 // levelPets();
                 // Console.WriteLine("\n\n");
