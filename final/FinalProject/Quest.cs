@@ -12,12 +12,6 @@ public class Quest
             1, 2, 3
         };
 
-    
-    // public string[] exerciseList =
-    // {
-    //     "you worked out!"
-    // };
-
     public int assignedLevel;
     public int assignedPoints;
     public string assignedFood;
@@ -30,15 +24,6 @@ public class Quest
         return assignedLevel;
     }
 
-    public void levelUp()
-    {
-        // For this one, we want to change the hardcoded level of the pet into the level that the just acquired and we want to save it to the file that we are having the user save the information on.
-    }
-
-    public void noLevelUp()
-    {
-        // For no levelUp, if we can have it say words of encouragement or give some narration on to the progress of the pet, that would be beneficial for the already slow gameplay. Could I do a random word generator for this? how do I 
-    }
     // This is going to be the list of animals which is the list of the type of animals, the name, and the level they are.
     private List<Pets> animals = new List<Pets>();
 
@@ -183,10 +168,6 @@ public class Quest
             
         }
     }
-
-    // Need to edit save Goal and Load goals to match the project. delete this when done or mark as completed.
-
-    // Uncomment here for other stuff.
 
     public void saveFile()
     {

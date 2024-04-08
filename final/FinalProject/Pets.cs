@@ -37,7 +37,6 @@ public abstract class Pets
         if (totalPoints >= 100)
         {
             // Increase level of pets
-            // (Assuming you have a method to increase level in the Animal class)
             IncreasePetLevel();
             totalPoints -= 100; // Deduct 100 points after leveling up
         }
