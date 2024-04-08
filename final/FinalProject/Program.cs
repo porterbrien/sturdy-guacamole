@@ -6,7 +6,6 @@ class Program
     {
         // Console.WriteLine("Hello FinalProject World!");
         Quest quest1 = new Quest();
-        Points points1 = new Points();
 
         bool finished = true;
 

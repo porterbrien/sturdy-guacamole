@@ -19,7 +19,11 @@ public class Quest
     
     public string[] foodList = 
     {
-        "Loaf of Bread", "Grapes", "Insects", "Fish", "Seeds"
+        "a loaf of Bread", "a Grape", "an Insect", "a Fish", "some Seeds"
+    };
+    public string[] exerciseList =
+    {
+        "you worked out!"
     };
 
     public int assignedLevel;
@@ -107,9 +111,9 @@ public class Quest
                 string petName = Console.ReadLine();
                 string petType = "Tree";
                 int petLevel = assignLevel();
+                int assignedPoints = 0;
 
-
-                Tree tree1 = new Tree(petName, petType, petLevel);
+                Tree tree1 = new Tree(petName, petType, petLevel, assignedPoints);
                 animals.Add(tree1);
 
                 // Input randomizer what level they start off as
@@ -122,8 +126,9 @@ public class Quest
                 string petName = Console.ReadLine();
                 string petType = "Frog";
                 int petLevel = assignLevel();
+                int assignedPoints = 0;
 
-                Frog frog1 = new Frog(petName, petType, petLevel);
+                Frog frog1 = new Frog(petName, petType, petLevel, assignedPoints);
                 animals.Add(frog1);
 
                 // Input randomizer what level they start off as
@@ -136,8 +141,9 @@ public class Quest
                 string petName = Console.ReadLine();
                 string petType = "Bird";
                 int petLevel = assignLevel();
+                int assignedPoints = 
 
-                Bird bird1 = new Bird(petName, petType, petLevel);
+                Bird bird1 = new Bird(petName, petType, petLevel, assignedPoints);
                 animals.Add(bird1);
 
                 // Input randomizer what level they start off as
@@ -150,8 +156,9 @@ public class Quest
                 string petName = Console.ReadLine();
                 string petType = "Rock";
                 int petLevel = assignLevel();
+                int assignedPoints = 0;
 
-                Rock rock1 = new Rock(petName, petType, petLevel);
+                Rock rock1 = new Rock(petName, petType, petLevel, assignedPoints);
                 animals.Add(rock1);
 
                 // Input randomizer what level they start off as
@@ -164,7 +171,6 @@ public class Quest
             }
         }
     }
-
     public void activitiesList()
     {
         bool loop = true;
@@ -176,6 +182,7 @@ public class Quest
             viewPets2();
             Console.WriteLine("Which pet would you like to upgrade? (select index): ");
 
+            // Read user input and attempt to parse it into an integer
             int choiceIndex;
             if (!int.TryParse(Console.ReadLine(), out choiceIndex))
             {
@@ -184,63 +191,113 @@ public class Quest
             }
 
             // Check if the selected index is within the valid range
-            if (choiceIndex < 0 || choiceIndex >= animals.Count)
+            if (choiceIndex < 1 || choiceIndex > animals.Count)
             {
                 Console.WriteLine("Invalid index. Please enter a valid index within the range.");
                 continue; // Restart the loop
             }
-            Pets selectedPet = animals[choiceIndex];
+
+            // Get the selected pet (adjust index to zero-based)
+            Pets selectedPet = animals[choiceIndex - 1];
 
             // Display information or perform actions based on the type of the selected pet
             if (selectedPet._petType == "Tree")
             {
                 levelTree();
+                loop = false;
             }
             else if (selectedPet._petType == "Frog")
             {
                 levelFrog();
+                loop = false;
             }
             else if (selectedPet._petType == "Bird")
             {
                 levelBird();
+                loop = false;
             }
             else if (selectedPet._petType == "Rock")
             {
                 levelRock();
+                loop = false;
+            }
+            else
+            {
+                Console.WriteLine($"{selectedPet._name} is of an unknown type.");
+                // Handle unknown types
             }
         }
     }
-    private void levelBird()
+    public void levelBird()
     {
         Random random = new Random();
-
         int randomPointIndex = random.Next(0, pointsList.Length);
-        assignedPoints = LevelsList[randomPointIndex];
-
+        assignedPoints = pointsList[randomPointIndex];
         int randomFoodIndex = random.Next(0, foodList.Length);
         assignedFood = foodList[randomFoodIndex];
-
+        Points points1 = new Points();
+        points1.UpdateTotalPoints(assignedPoints);
         bool thisLoop = true;
         while (thisLoop)
         {
             Console.WriteLine("Which activity would you like to do with your pet? ");
-            Console.WriteLine(assignedFood);
-            Console.WriteLine(assignedPoints);
             Console.WriteLine("    1) Feed\n    2) Tricks\n    3) Exercise");
             string petInput = Console.ReadLine();
-
             switch (petInput)
             {
             case "1":
-                Console.WriteLine($"You fed your pet a {assignedFood}!");
-                Console.WriteLine($"Your pet gained {assignedPoints} points");
+                Console.WriteLine($"You fed your pet {assignedFood}!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
                 thisLoop = false; // Exit the loop after feeding
                 break;
             case "2":
                 // Handle tricks
+                Console.WriteLine("Your pet struggled, but learned a new trick!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
                 break;
             case "3":
                 // Handle exercise
+                Console.WriteLine("Your pet is looking fit!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                break;
+            default:
+                Console.WriteLine("Invalid input. Please enter a number between 1 and 3.");
+                break;
+            }
+        }
+    }
+    private void levelTree()
+    {
+        Random random = new Random();
+        int randomPointIndex = random.Next(0, pointsList.Length);
+        assignedPoints = pointsList[randomPointIndex];
+        int randomFoodIndex = random.Next(0, foodList.Length);
+        assignedFood = foodList[randomFoodIndex];
+        Points points1 = new Points();
+        points1.UpdateTotalPoints(assignedPoints);
+        bool thisLoop = true;
+        while (thisLoop)
+        {
+            Console.WriteLine("Which activity would you like to do with your pet? ");
+            Console.WriteLine("     1) Water\n    2) Tricks\n    3) Exercise");
+            Console.WriteLine("(Type \"quit\" to leave) ");
+            string petInput = Console.ReadLine();
+            switch (petInput)
+            {
+            case "1":
+                Console.WriteLine($"You pet looks refreshed! ");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                thisLoop = false; // Exit the loop after feeding
+                break;
+            case "2":
+                // Handle tricks
+                Console.WriteLine("Your pet struggled, but learned a new trick!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                break;
+            case "3":
+                // Handle exercise
+                Console.WriteLine("Your pet is looking fit!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
                 break;
             default:
                 Console.WriteLine("Invalid input. Please enter a number between 1 and 3.");
@@ -249,26 +306,15 @@ public class Quest
         }
     }
 
-
-    private void levelTree()
-    {
-        bool thisLoop = true;
-        while (thisLoop)
-        {
-            Console.WriteLine("Which activity would you like to do with your pet? ");
-            Console.WriteLine("     1) Water\n    2) Tricks\n    3) Exercise");
-            Console.WriteLine("(Type \"quit\" to leave) ");
-            string petInput = Console.ReadLine();
-
-            if (petInput == "1")
-            {
-                
-            }
-        }
-    }
-
     private void levelRock()
     {
+        Random random = new Random();
+        int randomPointIndex = random.Next(0, pointsList.Length);
+        assignedPoints = pointsList[randomPointIndex];
+        int randomFoodIndex = random.Next(0, foodList.Length);
+        assignedFood = foodList[randomFoodIndex];
+        Points points1 = new Points();
+        points1.UpdateTotalPoints(assignedPoints);
         bool thisLoop = true;
         while (thisLoop)
         {
@@ -276,15 +322,39 @@ public class Quest
             Console.WriteLine("     1) Polish\n    2) Tricks\n    3) Exercise");
             string petInput = Console.ReadLine();
 
-            if (petInput == "1")
+            switch (petInput)
             {
-
+            case "1":
+                Console.WriteLine($"Your pet is looking squeaky clean!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                thisLoop = false; // Exit the loop after feeding
+                break;
+            case "2":
+                // Handle tricks
+                Console.WriteLine("Your pet struggled, but learned a new trick!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                break;
+            case "3":
+                // Handle exercise
+                Console.WriteLine("Your pet is looking fit!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                break;
+            default:
+                Console.WriteLine("Invalid input. Please enter a number between 1 and 3.");
+                break;
             }
         }
     }
 
     private void levelFrog()
     {
+        Random random = new Random();
+        int randomPointIndex = random.Next(0, pointsList.Length);
+        assignedPoints = pointsList[randomPointIndex];
+        int randomFoodIndex = random.Next(0, foodList.Length);
+        assignedFood = foodList[randomFoodIndex];
+        Points points1 = new Points();
+        points1.UpdateTotalPoints(assignedPoints);
         bool thisLoop = true;
         while (thisLoop)
         {
@@ -292,9 +362,26 @@ public class Quest
             Console.WriteLine("    1) Feed\n    2) Tricks\n    3) Exercise");
             string petInput = Console.ReadLine();
 
-            if (petInput == "1")
+            switch (petInput)
             {
-
+            case "1":
+                Console.WriteLine($"You fed your pet {assignedFood}!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                thisLoop = false; // Exit the loop after feeding
+                break;
+            case "2":
+                // Handle tricks
+                Console.WriteLine("Your pet struggled, but learned a new trick!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                break;
+            case "3":
+                // Handle exercise
+                Console.WriteLine("Your pet is looking fit!");
+                Console.WriteLine($"---Your pet gained {assignedPoints} points---");
+                break;
+            default:
+                Console.WriteLine("Invalid input. Please enter a number between 1 and 3.");
+                break;
             }
         }
     }

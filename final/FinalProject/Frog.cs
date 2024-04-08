@@ -1,14 +1,15 @@
 class Frog : Pets
 {
-    public Frog(string name, string petType, int petLevel) : base(name, petType, petLevel)
+    public Frog(string name, string petType, int petLevel, int assignedPoints) : base(name, petType, petLevel, assignedPoints)
     {
         _name = name;
         _petType = petType;
         _petLevel = petLevel;
+        _assignedPoints = assignedPoints;
     }
 
     public override string displayInfo(){
-        return $"Name: {_name}, Type: {_petType}, Level: {_petLevel}";
+        return $"Name: {_name}, Type: {_petType}, Level: {_petLevel} Progress: {_assignedPoints}/100";
     }
 
     // public string displayName()
