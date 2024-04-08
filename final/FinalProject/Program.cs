@@ -46,12 +46,12 @@ class Program
             
             if (userInput == 4)
             {
-                // quest1.saveFile();
+                quest1.saveFile();
             }
 
             if (userInput ==5)
             {
-                // quest1.loadFile();
+                quest1.loadFile();
             }
 
             if (userInput == 6)
