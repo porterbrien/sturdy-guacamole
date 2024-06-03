@@ -4,9 +4,11 @@ public class Bird : Pets
 {
     public Bird(string name, string petType, int petLevel, int totalPoints) : base(name, petType, petLevel, totalPoints)
     {
+
     }
 
-    public override string displayInfo(){
+    public override string displayInfo()
+    {
         return $"Name: {_name}, Type: {_petType}, Level: {_petLevel}, Progress: {totalPoints}/100";
     }
 

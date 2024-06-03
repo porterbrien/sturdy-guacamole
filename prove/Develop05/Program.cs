@@ -48,6 +48,7 @@ class Program
 
                 // This is the 15 Sec timer for the activity.
                 activity1.Clock();
+                Console.WriteLine("\n");
 
 
                 breathe1.DisplayEnd();

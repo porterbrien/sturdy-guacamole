@@ -116,7 +116,7 @@ class Activity
         Ani();
     }
     public void Clock(){
-        Thread.Sleep(30000);
+        Thread.Sleep(3000);
     }
     public bool startTime(){
         return DateTime.Now >= _timerEnd;
